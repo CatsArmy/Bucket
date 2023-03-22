@@ -14,7 +14,7 @@ namespace Procject_References_fix
     internal class Program
     {
         public static Bucket[] bucketArray;
-        
+
         public static Bucket bucket1;
 
         public static Bucket bucket2;
@@ -116,7 +116,7 @@ namespace Procject_References_fix
                 }
             }
             Console.WriteLine(@"Close Down The Bucket Program To Exit 
-no more expetions they have all been caught your welcome");   
+no more expetions they have all been caught your welcome");
         }
         public static void Bucket1()
         {
@@ -313,27 +313,9 @@ no more expetions they have all been caught your welcome");
                 }
             }
         }
-        //Up untill now we been able to create a type class<Bucket> and add water to it via the function b1.Fill();
         public static void Bucket5()
         {
-            /*Q5.a//
-            bucket1 = new Bucket(12,"Bucket1");
-            bucket1.Fill(6);
-            Console.WriteLine($"Bucket1: {ToString(bucket1)}");
-            bucket1.Empty();
-            Console.WriteLine($"Bucket1: {ToString(bucket1)}");
-            ///<summary>
-            The meaning of bucket1.Empty(num); 
-            is to remove num from the currentAmount of the bucket. but plot twist
-            it will throw errors because bucket.Empty has no overloads and can only fully empty the
-            bucket and should look like the following to function:
-            bucket1.Empty(); this wont be angry at you and will function 
-            ///</summary>
 
-            ///Q5.b/No as i stated in Q5.a it isnt possiable to change bucket1.Empty(num); to have a 
-            ///diffrent value for the num as it cant have a parameter/overload.
-            ///but if it did work it would be a simple while statement to filter out the bad numbers.
-            */
             try
             {
                 bucket1 = new Bucket(12, "Bucket1");
@@ -353,13 +335,7 @@ is the closest thing i could make it to the template");
         }
         public static void Bucket6()
         {
-            /*Bucket Do Not have a EmptyAll but again as i stated in Q5 the Bucket.Empty would 
-             * function the same way as the presumed EmptyAll.
-             * assuming it was real it would not return a value it is a void, voids do not return values
-             * 
-             * IsEmpty returns a boolean value of (currentAmount == 0) 
-             * if (currentAmount == 0) it will return true else it returns false
-            */
+
             try
             {
                 Console.WriteLine(@"Bucket6 is not a executable question but a verbal/missing file
@@ -383,23 +359,11 @@ you can go selcet a diffrent question or read the verbal part in the code");
                 {
                     bucket1 = new Bucket(capacity, "Bucket1");
                     bucket1.Fill(amountToFill);
-                    Console.WriteLine("Imagine there was a slow animation of it pouring down with Bucket.Empty(num) \nthe slow is built in lol");
-                    Console.WriteLine("I cannot make it print out every liter because it makes the entire program wait untill the animation is done");
-                    Console.WriteLine("i would have made on my self if i could setcurrentamount but they have it all internal/private");
-                    Console.WriteLine(@"while u wait for the bucket to empty heres a funny
-(￣o￣) . z Z 
-(￣o￣) . z Z
-(￣o￣) . z Z");
-                    bucket1.Empty();
-                    Console.WriteLine("(。・∀・)ノ welcome back that probly took a while");
-                    Console.WriteLine("Using any function on a Bucket would follow this princiable:\n" +
-                        "Bucket.<nameof func>(parameters) an example would look as the following:\n" +
-                        "bucket1.Fill(10);");
-                    Console.WriteLine("incase of a func with no parameters it would look like\n");
-                    Console.WriteLine("bucket1.Empty();");
-                    Console.WriteLine("my personal ToString(Bucket bucket) does get a bucket " +
-                        "but most of them are overriding an object.ToString() " +
-                        "so they have tostring allready and dont need to recive one");
+                    for (double i = amountToFill; i >= 0; i--)
+                    {
+                        Console.WriteLine($"Bucket[1] current fill: {i}");
+                        bucket1.Fill(-1);
+                    }
                 }
             }
             finally
@@ -412,23 +376,122 @@ you can go selcet a diffrent question or read the verbal part in the code");
         }
         public static void Bucket8()
         {
-
+            try
+            {
+                Console.WriteLine("Not an executable go back");
+            }
+            finally
+            {
+                Selector();
+            }
         }
         public static void Bucket9()
         {
+            try
+            {
 
+                Console.WriteLine("Enter bucket capacity");
+                int capacity = int.Parse(Console.ReadLine());
+                double amountToFill = double.Parse(Console.ReadLine());
+                success = !(capacity < 0 || amountToFill < 0);
+                if (success)
+                {
+                    bucket1 = new Bucket(capacity, "Bucket1");
+                    while (amountToFill < capacity)
+                    {
+                        bucket1.Fill(1);
+                        amountToFill--;
+                        Console.WriteLine($"SBucket[1] current amount: {bucket1.GetCurrentAmount()}");
+                    }
+                }
+            }
+            finally
+            {
+                if (!success)
+                {
+                    Bucket9();
+                }
+            }
         }
         public static void Bucket10()
         {
+            try
+            {
+                int capacity = int.Parse(Console.ReadLine());
+                double amountToFill = 0;
+                success = !(capacity < 0 || amountToFill < 0);
+                if (success)
+                {
+                    bucket1 = new Bucket(capacity, "Bucket1");
+                    for (double i = amountToFill; i < capacity; i += amountToFill)
+                    {
+                        try
+                        {
+                            Console.WriteLine("enter amount to fill the bucket");
+                            amountToFill = double.Parse(Console.ReadLine());
+                            while (amountToFill < 0)
+                            {
+                                Console.WriteLine("Error invalid num try again");
+                                amountToFill = double.Parse(Console.ReadLine());
+                            }
+                        }
+                        catch (Exception) { }
+                        bucket1.Fill(amountToFill);
+                        Console.WriteLine($"current amount: {bucket1.GetCurrentAmount()}");
+                    }
 
+                }
+            }
+            finally
+            {
+                if (!success)
+                {
+                    Bucket10();
+                }
+            }
         }
         public static void Bucket11()
         {
+            double amountToFill = 0;
+            Console.WriteLine("Enter capacity");
+            int capacity = int.Parse(Console.ReadLine());
+            while (capacity < 0)
+            {
+                Console.WriteLine("error invalid num try again");
+                try
+                {
+                    capacity = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
 
+                }
+            }
+            bucket1 = new Bucket(capacity, "Bucket1");
+            for (double i = 0; i < capacity; i += amountToFill)
+            {
+                Console.WriteLine("Bnter a positve or negetive");
+                amountToFill = double.Parse(Console.ReadLine());
+                bucket1.Fill(amountToFill);
+                Console.WriteLine($"the bucket is now at: {bucket1.GetCurrentAmount()}");
+            }
         }
         public static void Bucket12()
         {
-
+            bucket1 = new Bucket(12, "Bucket1");
+            bucket1.Fill(6);
+            bucket2 = new Bucket(bucket1.GetCapacity(), "Bucket2");
+            bucket2.Fill(9);
+            Console.WriteLine(ToString(bucket1));
+            Console.WriteLine(ToString(bucket2));
+            bucket3 = new Bucket(bucket1.GetCapacity(), "bucket3");
+            bucket1.PourInto(bucket3);
+            bucket2.PourInto(bucket1);
+            bucket3.PourInto(bucket2);
+            Console.WriteLine("\n");
+            Console.WriteLine(ToString(bucket1));
+            Console.WriteLine(ToString(bucket2));
+            Console.WriteLine(ToString(bucket3));
         }
     }
 }
